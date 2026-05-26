@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "IBM VGA 8x16", Courier, monospace;
+  background-color: rgb(0, 0, 0);
+}
+@font-face {
+  font-family: "IBM VGA 8x16";
+  src: url("./assets/font/AcPlus_IBM_VGA_8x16.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM VGA 9x8";
+  src: url("./assets/font/AcPlus_IBM_VGA_9x8.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-vga-headline: "IBM VGA 8x16", monospace;
+  --font-vga-text: "IBM VGA 9x8", monospace;
+  --color-primary: oklch(0.868562 0.277584 144.4661);
+  --color-primary-bg: oklch(0.868562 0.277584 144.4661 / 15%);
+  --color-bg-shadow: oklch(0.6999 0.1999 143.37 / 30%);
+  --color-text-shadow: oklch(0.6999 0.1999 143.37);
+}
+
+.pattern-grid {
+  background-color: transparent;
+  background-image:
+    linear-gradient(
+      oklch(0.868562 0.277584 144.4661 / 15%) 2px,
+      transparent 2px
+    ),
+    linear-gradient(
+      90deg,
+      oklch(0.868562 0.277584 144.4661 / 15%) 2px,
+      transparent 2px
+    );
+  background-size: 40px 40px;
+}

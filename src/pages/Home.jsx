@@ -7,6 +7,8 @@ import {
 } from "../components/Grid";
 import adsMatrixContent from "../data/content";
 import { animate, motion } from "framer-motion";
+import StaggerText from "../components/StaggerText";
+import Button from "../components/Button";
 
 export default function Home() {
   // GENERAL
@@ -49,31 +51,42 @@ export default function Home() {
   console.log(data);
   return (
     <>
-      <main className="flex flex-col items-center gap-16 overflow-hidden">
-        <img src="/Logo.png" alt="" className="size-20 object-contain" />
+      <main className="flex flex-col items-center overflow-hidden">
+        {/* =============== LOGO =============== */}
+        {/*  <img src="/Logo.png" alt="" className="size-20 object-contain" /> */}
+        {/* =============== HERO =============== */}
         <Grid>
-          <section className="h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">
-            <h1 className="text-white text-6xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-              Escape the <br /> Ads Matrix
-            </h1>
+          <section className="min-h-[50vh] w-full flex flex-col justify-start items-center relative z-20 gap-4 text-center pt-8">
+            <img
+              src="/Logo.png"
+              alt=""
+              className="w-[clamp(200px,80%,400px)] max-size-[500px] object-contain"
+            />
+            <StaggerText
+              text={"Escape the\nAds Matrix"}
+              speed={80}
+              delay={0.4}
+              cursorHideDelay={600}
+              containerClass="text-white text-6xl max-sm:text-5xl uppercase [text-shadow:0_0_12px_var(--color-primary)] text-center whitespace-pre-line"
+            />
+
             <span className="font-vga-text text-white text-sm">
               Nur <span className="text-primary">1%</span> der Werbekonten{" "}
               <br />
               erhalten <span className="text-primary">99%</span> der Ergebnisse
             </span>
-            <button className="text-white uppercase text-2xl border-primary border p-4 pt-5 leading-none">
-              Kostenloses Erstgespräch
-            </button>
+            <Button text="Kostenloses Erstgespräch" />
           </section>
         </Grid>
-        <section className="w-full flex flex-col justify-start items-center relative z-20 gap-4 text-center px-8">
+        {/* =============== WAS IST DIE ADS MATRIX =============== */}
+        <section className="w-full flex flex-col justify-start pb-20 items-center relative z-20 gap-4 text-center px-8">
           <h2 className="text-white text-4xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
             Was ist die <br /> Ads Matrix?
           </h2>
           <img
             src="/pyramid.png"
             alt=""
-            className="size-[80%] object-contain"
+            className="w-[clamp(320px,80%,400px)] max-size-[500px] object-contain"
           />
 
           <span className="font-vga-text text-white text-sm">
@@ -81,11 +94,11 @@ export default function Home() {
             Accounts teilt den globalen Werbeerfolg fast komplett unter sich
             auf. Die Top 1%.
           </span>
-          <button className="text-white uppercase text-2xl border-primary border p-4 pt-5 leading-none">
-            Kostenloses Erstgespräch
-          </button>
+          <Button text="Kostenloses Erstgespräch" />
         </section>
-        <div className="overflow-hidden w-full py-16">
+
+        {/* =============== KUNDEN =============== */}
+        <div className="overflow-hidden w-full py-16 border-y border-primary">
           <PerspectiveGrid>
             <section className="min-h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">
               <h1 className="text-white text-4xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
@@ -106,38 +119,34 @@ export default function Home() {
                   {clients}
                 </motion.div>
               </div>
-              <button className="text-white uppercase text-2xl border-primary border p-4 pt-5 leading-none">
-                Kostenloses Erstgespräch
-              </button>
+              <Button text="Kostenloses Erstgespräch" />
             </section>
           </PerspectiveGrid>
         </div>
-        <section className="w-full flex flex-col justify-start items-start p-8 relative z-20 gap-4 text-left">
+        {/* =============== SO GEHTS =============== */}
+        <section className="w-full flex flex-col justify-start pt-20 items-start p-8 relative z-20 gap-4 text-left">
           <h2 className="text-white text-4xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
             So bringen <br /> wir Werbekonten <br /> in die Top 1%
           </h2>
           <div>{listItem}</div>
-          <button className="text-white uppercase text-2xl border-primary border p-4 pt-5 leading-none">
-            Kostenloses Erstgespräch
-          </button>
+          <Button text="Kostenloses Erstgespräch" />
         </section>
+        {/* =============== CTA =============== */}
         <ReverseGrid>
           <section className="h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">
-            <h1 className="text-white text-6xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+            <h2 className="text-white text-6xl max-sm:text-5xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
               Kostenlos
               <br />7 Tage starten
-            </h1>
+            </h2>
             <span className="font-vga-text text-white text-sm">
               Statt einen Risikoreichen Vertrag zu unterschreiben kannst du
               unseren service kostenfrei nutzen.
             </span>
-            <button className="text-white uppercase text-2xl border-primary border p-4 pt-5 leading-none">
-              Kostenloses Erstgespräch
-            </button>
+            <Button text="Kostenloses Erstgespräch" />
           </section>
         </ReverseGrid>
       </main>
-
+      {/* =============== SITE OVERLAYS =============== */}
       <div className="crt-overlay" />
       <div className="noise-overlay" />
       <svg className="svg-filters" aria-hidden="true">
@@ -156,7 +165,6 @@ export default function Home() {
               repeatCount="indefinite"
             />
           </feTurbulence>
-
           <feDisplacementMap
             in="SourceGraphic"
             in2="noise"
@@ -167,7 +175,7 @@ export default function Home() {
             <animate
               attributeName="scale"
               dur="2.5s"
-              values="2; 6; 6; 2; 4"
+              values="1; 4; 6; 1; 2"
               repeatCount="indefinite"
             />
           </feDisplacementMap>

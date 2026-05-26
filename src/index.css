@@ -28,6 +28,16 @@
   --color-bg-shadow: oklch(0.6999 0.1999 143.37 / 30%);
   --color-text-shadow: oklch(0.6999 0.1999 143.37);
 }
+.typewriter-cursor-block {
+  display: inline-block;
+  width: 0.12em;
+  height: 0.9em;
+  margin-left: 0.08em;
+  margin-bottom: -0.1em;
+  background: var(--color-primary);
+  box-shadow: 0 0 12px var(--color-primary);
+  vertical-align: baseline;
+}
 .svg-filters {
   position: absolute;
   width: 0;

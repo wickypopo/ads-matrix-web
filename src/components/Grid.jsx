@@ -6,7 +6,7 @@ export function Grid({ children }) {
       <div className="border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid p-8">
         {children}
       </div>
-      <div className="absolute -inset-8 pointer-events-none bg-linear-to-t from-black/100 from-10% to-black/0 z-0" />
+      <div className="absolute -inset-8 pointer-events-none bg-linear-to-t from-[#080808] from-20% to-black/0 z-0" />
     </div>
   );
 }
@@ -16,7 +16,7 @@ export function ReverseGrid({ children }) {
       <div className="border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid p-8">
         {children}
       </div>
-      <div className="absolute -inset-8 pointer-events-none bg-linear-to-b from-black/100 from-10% to-black/0 z-0" />
+      <div className="absolute -inset-8 pointer-events-none bg-linear-to-b from-[#080808] from-10% to-black/0 z-0" />
     </div>
   );
 }

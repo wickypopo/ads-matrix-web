@@ -15,13 +15,6 @@ export default function Home() {
   const [slide, setSlide] = useState(0);
   const data = adsMatrixContent;
 
-  // ANIMATIONS
-  const gap = 16;
-  const slideValue = slide + gap + "%";
-  const container = {
-    initial: { x: 0 },
-    animate: { x: slideValue },
-  };
   // MAPS
   const clients = data.escapingClients.clients.map((client) => (
     <BlurredGrid>
@@ -39,9 +32,12 @@ export default function Home() {
   ));
 
   const listItem = data.topOnePercent.steps.map((item) => (
-    <div key={item.number} className="flex gap-2 font-vga-text text-xs mb-4">
+    <div
+      key={item.number}
+      className="flex flex-col gap-2 font-vga-text text-[12px] mb-4"
+    >
       <div>
-        <span className="text-primary">&gt;</span>
+        <span className="text-primary">[{item.number}]</span>
       </div>
       <div>
         <span className="text-white">{item.text}</span>
@@ -51,12 +47,12 @@ export default function Home() {
   console.log(data);
   return (
     <>
-      <main className="flex flex-col items-center overflow-hidden">
+      <main className="flex flex-col items-center overflow-hidden gap-40">
         {/* =============== LOGO =============== */}
         {/*  <img src="/Logo.png" alt="" className="size-20 object-contain" /> */}
         {/* =============== HERO =============== */}
         <Grid>
-          <section className="min-h-[50vh] w-full flex flex-col justify-start items-center relative z-20 gap-4 text-center pt-8">
+          <section className="min-h-[50vh] w-full flex flex-col justify-start items-center relative z-40 gap-4 text-center pt-8">
             <img
               src="/Logo.png"
               alt=""
@@ -79,24 +75,33 @@ export default function Home() {
           </section>
         </Grid>
         {/* =============== WAS IST DIE ADS MATRIX =============== */}
-        <section className="w-full flex flex-col justify-start pb-20 items-center relative z-20 gap-4 text-center px-8">
-          <h2 className="text-white text-4xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-            Was ist die <br /> Ads Matrix?
-          </h2>
-          <img
-            src="/pyramid.png"
-            alt=""
-            className="w-[clamp(320px,80%,400px)] max-size-[500px] object-contain"
-          />
+        <section className="p-8">
+          <div className="border-primary border-2">
+            <div className="bg-primary p-1 flex justify-between">
+              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                Was ist die Ads Matrix?
+              </h2>
+              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                X
+              </h2>
+            </div>
 
-          <span className="font-vga-text text-white text-sm">
-            Ein winziger Bruchteil der hochprofessionellen, datengetriebenen
-            Accounts teilt den globalen Werbeerfolg fast komplett unter sich
-            auf. Die Top 1%.
-          </span>
-          <Button text="Kostenloses Erstgespräch" />
+            <div className="flex flex-col p-8 items-center text-center gap-4">
+              <img
+                src="/pyramid.png"
+                alt=""
+                className="w-[clamp(320px,80%,400px)] max-size-[500px] object-contain"
+              />
+
+              <span className="font-vga-text text-white text-sm">
+                Ein winziger Bruchteil der hochprofessionellen, datengetriebenen
+                Accounts teilt den globalen Werbeerfolg fast komplett unter sich
+                auf. Die Top 1%.
+              </span>
+              <Button text="Kostenloses Erstgespräch" />
+            </div>
+          </div>
         </section>
-
         {/* =============== KUNDEN =============== */}
         <div className="overflow-hidden w-full py-16 border-y border-primary">
           <PerspectiveGrid>
@@ -124,12 +129,23 @@ export default function Home() {
           </PerspectiveGrid>
         </div>
         {/* =============== SO GEHTS =============== */}
-        <section className="w-full flex flex-col justify-start pt-20 items-start p-8 relative z-20 gap-4 text-left">
-          <h2 className="text-white text-4xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-            So bringen <br /> wir Werbekonten <br /> in die Top 1%
-          </h2>
-          <div>{listItem}</div>
-          <Button text="Kostenloses Erstgespräch" />
+
+        <section className="p-8">
+          <div className="border-primary border-2">
+            <div className="bg-primary p-1 flex justify-between">
+              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                So bringen wir dich in die Top 1%
+              </h2>
+              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                X
+              </h2>
+            </div>
+
+            <div className="flex flex-col p-8 items-center gap-4">
+              <div>{listItem}</div>
+              <Button text="Kostenloses Erstgespräch" />
+            </div>
+          </div>
         </section>
         {/* =============== CTA =============== */}
         <ReverseGrid>

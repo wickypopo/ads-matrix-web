@@ -1,28 +1,126 @@
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 export function Grid({ children }) {
+  const gridRef = useRef(null);
+  const [activeCells, setActiveCells] = useState([]);
+
+  const cellSize = 40;
+
+  function handleMouseMove(e) {
+    const rect = gridRef.current.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const col = Math.floor(x / cellSize);
+    const row = Math.floor(y / cellSize);
+
+    const id = `${col}-${row}`;
+
+    setActiveCells((prev) => {
+      if (prev.includes(id)) return prev;
+      return [...prev, id];
+    });
+
+    setTimeout(() => {
+      setActiveCells((prev) => prev.filter((cell) => cell !== id));
+    }, 500);
+  }
+
   return (
     <div className="relative p-8">
-      <div className="border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid p-8">
-        {children}
+      <div
+        ref={gridRef}
+        onMouseMove={handleMouseMove}
+        className="relative z-30 border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid p-8 "
+      >
+        {activeCells.map((cell) => {
+          const [col, row] = cell.split("-").map(Number);
+
+          return (
+            <div
+              key={cell}
+              className="grid-hover-cell"
+              style={{
+                left: col * cellSize,
+                top: row * cellSize,
+                width: cellSize,
+                height: cellSize,
+              }}
+            />
+          );
+        })}
+
+        <div className="absolute -inset-8 pointer-events-none bg-linear-to-t from-[#080808] from-20% to-black/0 z-20" />
+
+        <div className="relative z-30">{children}</div>
       </div>
-      <div className="absolute -inset-8 pointer-events-none bg-linear-to-t from-[#080808] from-20% to-black/0 z-0" />
     </div>
   );
 }
 export function ReverseGrid({ children }) {
+  const gridRef = useRef(null);
+  const [activeCells, setActiveCells] = useState([]);
+
+  const cellSize = 40;
+
+  function handleMouseMove(e) {
+    const rect = gridRef.current.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const col = Math.floor(x / cellSize);
+    const row = Math.floor(y / cellSize);
+
+    const id = `${col}-${row}`;
+
+    setActiveCells((prev) => {
+      if (prev.includes(id)) return prev;
+      return [...prev, id];
+    });
+
+    setTimeout(() => {
+      setActiveCells((prev) => prev.filter((cell) => cell !== id));
+    }, 500);
+  }
+
   return (
     <div className="relative p-8">
-      <div className="border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid p-8">
-        {children}
+      <div
+        ref={gridRef}
+        onMouseMove={handleMouseMove}
+        className="relative z-30 border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid p-8 "
+      >
+        {activeCells.map((cell) => {
+          const [col, row] = cell.split("-").map(Number);
+
+          return (
+            <div
+              key={cell}
+              className="grid-hover-cell"
+              style={{
+                left: col * cellSize,
+                top: row * cellSize,
+                width: cellSize,
+                height: cellSize,
+              }}
+            />
+          );
+        })}
+
+        <div className="absolute -inset-8 pointer-events-none bg-linear-to-b from-[#080808] from-20% to-black/0 z-20" />
+
+        <div className="relative z-30">{children}</div>
       </div>
-      <div className="absolute -inset-8 pointer-events-none bg-linear-to-b from-[#080808] from-10% to-black/0 z-0" />
     </div>
   );
 }
+
 export function BlurredGrid({ children }) {
   return (
-    <div className="client-card card-wobble relative flex-shrink-0 w-[340px] border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid-white p-8 backdrop-blur-xs">
+    <div className="client-card card-wobble relative flex-shrink-0 w-[340px] border-2 border-primary shadow-[inset_0_0_20px_var(--color-primary-bg),0_0_20px_var(--color-bg-shadow)] pattern-grid p-8 backdrop-blur-xs">
       {children}
     </div>
   );

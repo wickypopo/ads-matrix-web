@@ -149,7 +149,7 @@ export default function Home() {
         </section>
         {/* =============== CTA =============== */}
         <ReverseGrid>
-          <section className="h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">
+          <section className="min-h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">
             <h2 className="text-white text-6xl max-sm:text-5xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
               Kostenlos
               <br />7 Tage starten

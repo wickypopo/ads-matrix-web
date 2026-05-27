@@ -62,7 +62,7 @@ export function Grid({ children }) {
       <div className="pointer-events-none absolute inset-0 pointer-events-none bg-gradient-to-t from-[#080808] from-10% via-[#080808]/80 to-transparent z-10" />
 
       {/* Content Layer */}
-      <div className="pointer-events-none relative z-20 p-8">{children}</div>
+      <div className="relative z-20 p-8">{children}</div>
     </div>
   );
 }
@@ -128,7 +128,7 @@ export function ReverseGrid({ children }) {
       <div className="pointer-events-none absolute inset-0 pointer-events-none bg-gradient-to-b from-[#080808] from-10% via-[#080808]/80 to-transparent z-10" />
 
       {/* Content Layer */}
-      <div className="pointer-events-none relative z-20 p-8">{children}</div>
+      <div className="relative z-20 p-8">{children}</div>
     </div>
   );
 }

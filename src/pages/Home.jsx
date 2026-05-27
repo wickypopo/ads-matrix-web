@@ -50,58 +50,62 @@ export default function Home() {
       <main className="flex flex-col items-center overflow-hidden gap-40">
         {/* =============== LOGO =============== */}
         {/*  <img src="/Logo.png" alt="" className="size-20 object-contain" /> */}
-        {/* =============== HERO =============== */}
-        <Grid>
-          <section className="min-h-[50vh] w-full flex flex-col justify-start items-center relative z-40 gap-4 text-center pt-8">
-            <img
-              src="/Logo.png"
-              alt=""
-              className="w-[clamp(200px,80%,400px)] max-size-[500px] object-contain"
-            />
-            <StaggerText
-              text={"Escape the\nAds Matrix"}
-              speed={80}
-              delay={0.4}
-              cursorHideDelay={600}
-              containerClass="text-white text-6xl max-sm:text-5xl uppercase [text-shadow:0_0_12px_var(--color-primary)] text-center whitespace-pre-line"
-            />
 
-            <span className="font-vga-text text-white text-sm">
-              Nur <span className="text-primary">1%</span> der Werbekonten{" "}
-              <br />
-              erhalten <span className="text-primary">99%</span> der Ergebnisse
-            </span>
-            <Button text="Kostenloses Erstgespräch" />
-          </section>
-        </Grid>
-        {/* =============== WAS IST DIE ADS MATRIX =============== */}
-        <section className="p-8">
-          <div className="border-primary border-2">
-            <div className="bg-primary p-1 flex justify-between">
-              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                Was ist die Ads Matrix?
-              </h2>
-              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                X
-              </h2>
-            </div>
-
-            <div className="flex flex-col p-8 items-center text-center gap-4">
+        <div className="w-full max-w-[1100px]">
+          {/* =============== HERO =============== */}
+          <Grid>
+            <section className="min-h-[50vh] w-full flex flex-col justify-start items-center relative z-40 gap-4 text-center pt-8">
               <img
-                src="/pyramid.png"
+                src="/Logo.png"
                 alt=""
-                className="w-[clamp(320px,80%,400px)] max-size-[500px] object-contain"
+                className="w-[clamp(200px,80%,400px)] max-size-[500px] object-contain"
+              />
+              <StaggerText
+                text={"Escape the\nAds Matrix"}
+                speed={80}
+                delay={0.4}
+                cursorHideDelay={600}
+                containerClass="text-white text-6xl max-sm:text-5xl uppercase [text-shadow:0_0_12px_var(--color-primary)] text-center whitespace-pre-line"
               />
 
               <span className="font-vga-text text-white text-sm">
-                Ein winziger Bruchteil der hochprofessionellen, datengetriebenen
-                Accounts teilt den globalen Werbeerfolg fast komplett unter sich
-                auf. Die Top 1%.
+                Nur <span className="text-primary">1%</span> der Werbekonten{" "}
+                <br />
+                erhalten <span className="text-primary">99%</span> der
+                Ergebnisse
               </span>
               <Button text="Kostenloses Erstgespräch" />
+            </section>
+          </Grid>
+          {/* =============== WAS IST DIE ADS MATRIX =============== */}
+          <section className="p-8">
+            <div className="border-primary border-2">
+              <div className="bg-primary p-1 flex justify-between">
+                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                  Was ist die Ads Matrix?
+                </h2>
+                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                  X
+                </h2>
+              </div>
+
+              <div className="flex flex-col p-8 items-center text-center gap-4">
+                <img
+                  src="/pyramid.png"
+                  alt=""
+                  className="w-[clamp(320px,80%,400px)] max-size-[500px] object-contain"
+                />
+
+                <span className="font-vga-text text-white text-sm">
+                  Ein winziger Bruchteil der hochprofessionellen,
+                  datengetriebenen Accounts teilt den globalen Werbeerfolg fast
+                  komplett unter sich auf. Die Top 1%.
+                </span>
+                <Button text="Kostenloses Erstgespräch" />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
         {/* =============== KUNDEN =============== */}
         <div className="overflow-hidden w-full py-16 border-y border-primary">
           <PerspectiveGrid>
@@ -128,39 +132,41 @@ export default function Home() {
             </section>
           </PerspectiveGrid>
         </div>
-        {/* =============== SO GEHTS =============== */}
+        <div className="w-full max-w-[1100px]">
+          {/* =============== SO GEHTS =============== */}
 
-        <section className="p-8">
-          <div className="border-primary border-2">
-            <div className="bg-primary p-1 flex justify-between">
-              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                So bringen wir dich in die Top 1%
-              </h2>
-              <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                X
-              </h2>
-            </div>
+          <section className="p-8">
+            <div className="border-primary border-2">
+              <div className="bg-primary p-1 flex justify-between">
+                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                  So bringen wir dich in die Top 1%
+                </h2>
+                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                  X
+                </h2>
+              </div>
 
-            <div className="flex flex-col p-8 items-center gap-4">
-              <div>{listItem}</div>
-              <Button text="Kostenloses Erstgespräch" />
+              <div className="flex flex-col p-8 items-center gap-4">
+                <div>{listItem}</div>
+                <Button text="Kostenloses Erstgespräch" />
+              </div>
             </div>
-          </div>
-        </section>
-        {/* =============== CTA =============== */}
-        <ReverseGrid>
-          <section className="min-h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">
-            <h2 className="text-white text-6xl max-sm:text-5xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-              Kostenlos
-              <br />7 Tage starten
-            </h2>
-            <span className="font-vga-text text-white text-sm">
-              Statt einen Risikoreichen Vertrag zu unterschreiben kannst du
-              unseren service kostenfrei nutzen.
-            </span>
-            <Button text="Kostenloses Erstgespräch" />
           </section>
-        </ReverseGrid>
+          {/* =============== CTA =============== */}
+          <ReverseGrid>
+            <section className="min-h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">
+              <h2 className="text-white text-6xl max-sm:text-5xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+                Kostenlos
+                <br />7 Tage starten
+              </h2>
+              <span className="font-vga-text text-white text-sm">
+                Statt einen Risikoreichen Vertrag zu unterschreiben kannst du
+                unseren service kostenfrei nutzen.
+              </span>
+              <Button text="Kostenloses Erstgespräch" />
+            </section>
+          </ReverseGrid>
+        </div>
       </main>
       {/* =============== SITE OVERLAYS =============== */}
       <div className="crt-overlay" />

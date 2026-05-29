@@ -4,6 +4,7 @@ import {
   Grid,
   PerspectiveGrid,
   ReverseGrid,
+  Box,
 } from "../components/Grid";
 import adsMatrixContent from "../data/content";
 import { animate, motion } from "framer-motion";
@@ -44,7 +45,6 @@ export default function Home() {
       </div>
     </div>
   ));
-  console.log(data);
   return (
     <>
       <main className="flex flex-col items-center overflow-hidden gap-40">
@@ -78,17 +78,8 @@ export default function Home() {
             </section>
           </Grid>
           {/* =============== WAS IST DIE ADS MATRIX =============== */}
-          <section className="p-8">
-            <div className="border-primary border-2">
-              <div className="bg-primary p-1 flex justify-between">
-                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                  Was ist die Ads Matrix?
-                </h2>
-                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                  X
-                </h2>
-              </div>
-
+          <div className="p-8">
+            <Box title="Was ist die Ads Matrix?">
               <div className="flex flex-col p-8 items-center text-center gap-4">
                 <img
                   src="/pyramid.png"
@@ -103,8 +94,8 @@ export default function Home() {
                 </span>
                 <Button text="Kostenloses Erstgespräch" />
               </div>
-            </div>
-          </section>
+            </Box>
+          </div>
         </div>
         {/* =============== KUNDEN =============== */}
         <div className="overflow-hidden w-full py-16 border-y border-primary">
@@ -134,24 +125,15 @@ export default function Home() {
         </div>
         <div className="w-full max-w-[1100px]">
           {/* =============== SO GEHTS =============== */}
-
-          <section className="p-8">
-            <div className="border-primary border-2">
-              <div className="bg-primary p-1 flex justify-between">
-                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                  So bringen wir dich in die Top 1%
-                </h2>
-                <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-                  X
-                </h2>
-              </div>
-
+          <div className="p-8">
+            <Box title="So bringen wir dich in die Top 1%">
               <div className="flex flex-col p-8 items-center gap-4">
                 <div>{listItem}</div>
                 <Button text="Kostenloses Erstgespräch" />
               </div>
-            </div>
-          </section>
+            </Box>
+          </div>
+
           {/* =============== CTA =============== */}
           <ReverseGrid>
             <section className="min-h-[50vh] w-full flex flex-col justify-center items-center relative z-20 gap-4 text-center">

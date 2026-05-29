@@ -1267,15 +1267,78 @@ export function PerspectiveGrid({ children }) {
 export function Box({ children, title }) {
   return (
     <section className="border-b-dark border-r-dark border-t-light border-l-light border-2 w-full max-w-[1200px]">
-      <div className="bg-primary p-1 flex justify-between px-2">
-        <h2 className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
+      <div className="bg-primary p-1 flex justify-between items-center px-2">
+        <h2 className="text-2xl uppercase [text-shadow:0_0_12px_var(--color-primary)] leading-none">
           {title}
         </h2>
         <Link
           to="/"
-          className="text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)] border-b-dark border-r-dark border-t-light border-l-light border-2 size-8 flex items-center justify-center leading-none"
+          className="cursor-none text-xl uppercase [text-shadow:0_0_12px_var(--color-primary)] border-b-dark border-r-dark border-t-light border-l-light border-2 size-8 flex items-center justify-center leading-none"
         >
-          X
+          <svg className="size-4" viewBox="0 0 16.09 16.09">
+            <g id="Ebene_2-2" data-name="Ebene 2">
+              <g>
+                <g>
+                  <rect x="2.3" y="2.3" width="2.3" height="2.3" />
+                  <rect width="2.3" height="2.3" />
+                  <rect x="4.6" y="4.6" width="2.3" height="2.3" />
+                  <rect x="6.9" y="6.9" width="2.3" height="2.3" />
+                  <rect x="9.19" y="9.19" width="2.3" height="2.3" />
+                  <rect x="11.49" y="11.49" width="2.3" height="2.3" />
+                  <rect x="13.79" y="13.79" width="2.3" height="2.3" />
+                </g>
+                <g>
+                  <rect
+                    x="2.3"
+                    y="11.49"
+                    width="2.3"
+                    height="2.3"
+                    transform="translate(-9.19 16.09) rotate(-90)"
+                  />
+                  <rect
+                    y="13.79"
+                    width="2.3"
+                    height="2.3"
+                    transform="translate(-13.79 16.09) rotate(-90)"
+                  />
+                  <rect
+                    x="4.6"
+                    y="9.19"
+                    width="2.3"
+                    height="2.3"
+                    transform="translate(-4.6 16.09) rotate(-90)"
+                  />
+                  <rect
+                    x="6.9"
+                    y="6.9"
+                    width="2.3"
+                    height="2.3"
+                    transform="translate(0 16.09) rotate(-90)"
+                  />
+                  <rect
+                    x="9.19"
+                    y="4.6"
+                    width="2.3"
+                    height="2.3"
+                    transform="translate(4.6 16.09) rotate(-90)"
+                  />
+                  <rect
+                    x="11.49"
+                    y="2.3"
+                    width="2.3"
+                    height="2.3"
+                    transform="translate(9.19 16.09) rotate(-90)"
+                  />
+                  <rect
+                    x="13.79"
+                    width="2.3"
+                    height="2.3"
+                    transform="translate(13.79 16.09) rotate(-90)"
+                  />
+                </g>
+              </g>
+            </g>
+          </svg>
         </Link>
       </div>
 

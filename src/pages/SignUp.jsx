@@ -7,15 +7,15 @@ export default function SignUp() {
 
     const form = new FormData(e.currentTarget);
 
-    const vorname = form.get("vorname");
-    const nachname = form.get("nachname");
+    const name = form.get("name");
+    const website = form.get("website");
     const email = form.get("email");
     const phone = form.get("phone");
     const budget = form.get("budget");
 
     const payload = {
-      vorname: vorname,
-      nachname: nachname,
+      name: name,
+      website: website,
       email: email,
       phone: phone,
       custom_fields: {
@@ -52,35 +52,45 @@ export default function SignUp() {
           <input
             type="text"
             className="w-full bg-primary p-4 text-lg"
-            placeholder="Vorname"
-            name="vorname"
-          />
-          <input
-            type="text"
-            className="w-full bg-primary p-4 text-lg"
-            placeholder="Nachname"
-            name="nachname"
+            placeholder="Name"
+            name="name"
+            required
           />
           <input
             type="email"
             className="w-full bg-primary p-4 text-lg"
             placeholder="E-Mail"
             name="email"
+            required
+          />
+          <input
+            type="number"
+            className="w-full bg-primary p-4 text-lg"
+            placeholder="Telefon"
+            name="phone"
+            required
           />
           <input
             type="text"
             className="w-full bg-primary p-4 text-lg"
-            placeholder="Telefon"
-            name="phone"
+            placeholder="Deine Website"
+            name="website"
+            required
           />
           <div className="mt-2 mb-4">
             <label for="cars" className="text-white text-lg">
               Wie viel Werbebudget gibst du pro Monat aus?
             </label>
+
             <select
               name="budget"
               className="w-full bg-primary p-4 text-lg outline-none"
+              required
+              defaultValue=""
             >
+              <option value="" disabled>
+                Auswählen
+              </option>
               <option value="Ich schalte aktuell keine ads">
                 Ich schalte aktuell keine ads
               </option>

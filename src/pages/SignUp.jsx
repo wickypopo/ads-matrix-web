@@ -5,23 +5,33 @@ export default function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    const form = new FormData(e.currentTarget);
+
+    const vorname = form.get("vorname");
+    const nachname = form.get("nachname");
+    const email = form.get("email");
+    const phone = form.get("phone");
+    const budget = form.get("budget");
+
     const payload = {
-      full_name: "Max Mustermann",
-      email: "max@example.com",
-      phone: "+49 123 456",
+      vorname: vorname,
+      nachname: nachname,
+      email: email,
+      phone: phone,
       custom_fields: {
-        budget: "10000€",
-        source: "Website Formular",
+        budget: budget,
       },
     };
 
-    const response = await fetch("/api/lead", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    console.log(payload);
+
+    const response = await fetch(
+      "https://hooks.zapier.com/hooks/catch/9781487/4b40u4y/",
+      {
+        method: "POST",
+        body: JSON.stringify(payload),
       },
-      body: JSON.stringify(payload),
-    });
+    );
 
     const result = await response.json();
 
@@ -61,15 +71,14 @@ export default function SignUp() {
             type="text"
             className="w-full bg-primary p-4 text-lg"
             placeholder="Telefon"
-            name="telefon"
+            name="phone"
           />
           <div className="mt-2 mb-4">
             <label for="cars" className="text-white text-lg">
               Wie viel Werbebudget gibst du pro Monat aus?
             </label>
             <select
-              id="auswahl"
-              name="auswahl"
+              name="budget"
               className="w-full bg-primary p-4 text-lg outline-none"
             >
               <option value="Ich schalte aktuell keine ads">

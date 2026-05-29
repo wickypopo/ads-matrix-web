@@ -5,36 +5,27 @@ import { motion } from "framer-motion";
 
 export default function SignUp() {
   const [send, setSend] = useState(false);
+
   async function handleSubmit(e) {
     e.preventDefault();
 
     const form = new FormData(e.currentTarget);
 
-    const name = form.get("name");
-    const website = form.get("website");
-    const email = form.get("email");
-    const phone = form.get("phone");
-    const budget = form.get("budget");
-
     const payload = {
-      name: name,
-      website: website,
-      email: email,
-      phone: phone,
-      custom_fields: {
-        budget: budget,
-      },
+      name: form.get("name"),
+      website: form.get("website"),
+      email: form.get("email"),
+      phone: form.get("phone"),
+      budget: form.get("budget"),
     };
 
-    console.log(payload);
-
-    const response = await fetch(
-      "https://hooks.zapier.com/hooks/catch/9781487/4b40u4y/",
-      {
-        method: "POST",
-        body: JSON.stringify(payload),
+    const response = await fetch("/api/lead", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify(payload),
+    });
 
     const result = await response.json();
 
@@ -42,8 +33,9 @@ export default function SignUp() {
       console.error(result);
       return;
     }
-    setSend(true);
+
     console.log("Lead sent:", result);
+    setSend(true);
   }
 
   function loadingBar() {

@@ -18,16 +18,17 @@ export default function Home() {
 
   // MAPS
   const clients = data.escapingClients.clients.map((client) => (
-    <BlurredGrid>
+    <BlurredGrid key={client.id}>
       <div className="flex flex-col justify-start items-center gap-8 py-12">
-        <img src="/ym_logo.png" alt="" className="size-40 object-contain" />
+        {client.wide ? (
+          <img src={client.img} alt="" className="width-60 object-contain" />
+        ) : (
+          <img src={client.img} alt="" className="size-40 object-contain" />
+        )}
         <h1 className="text-white text-4xl uppercase [text-shadow:0_0_12px_var(--color-primary)]">
-          {client}
+          {client.title}
         </h1>
-        <span className="font-vga-text text-white text-xs">
-          Nur <span className="text-primary">1%</span> der Werbekonten <br />
-          erhalten <span className="text-primary">99%</span> der Ergebnisse
-        </span>
+        <span className="font-vga-text text-white text-xs">{client.text}</span>
       </div>
     </BlurredGrid>
   ));
